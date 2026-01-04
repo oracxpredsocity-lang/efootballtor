@@ -21,11 +21,9 @@ function getPlayer(players, id){
 }
 
 function formatLabel(p){
-  // Affiche : "Contrôleur (nom) — Équipe"
   if (!p) return '—';
   const controller = p.controller || p.name || '—';
   const team = p.team || '—';
-  // format compact: "Théo — FC Oracx"
   return `${escapeHtml(controller)} — ${escapeHtml(team)}`;
 }
 
@@ -68,7 +66,7 @@ function renderBracket(data){
           <div class="player-name">${p1 ? escapeHtml(p1.name) : '—'}</div>
           <div class="score">${score1}</div>
         </div>
-        <div class="sub-label" style="color:var(--muted);font-size:0.85rem;margin-top:-4px">${p1Label}</div>
+        <div class="sub-label">${p1Label}</div>
         <div class="progress"><div class="bar" style="width:${Math.round(ratio1*100)}%"></div></div>
 
         <div style="height:6px"></div>
@@ -77,7 +75,7 @@ function renderBracket(data){
           <div class="player-name">${p2 ? escapeHtml(p2.name) : '—'}</div>
           <div class="score">${score2}</div>
         </div>
-        <div class="sub-label" style="color:var(--muted);font-size:0.85rem;margin-top:-4px">${p2Label}</div>
+        <div class="sub-label">${p2Label}</div>
         <div class="progress"><div class="bar" style="width:${Math.round(ratio2*100)}%"></div></div>
       `;
       col.appendChild(matchEl);
@@ -94,5 +92,6 @@ function escapeHtml(str){
     .replace(/>/g, "&gt;");
 }
 
+// initial fetch + polling
 fetchData();
 setInterval(fetchData, 2000);

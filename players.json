@@ -1,0 +1,27 @@
+{
+  "players": [
+    { "id": 1, "controller": "Théo", "team": "FC Oracx", "name": "Player A" },
+    { "id": 2, "controller": "Lina",  "team": "Golden Strikers", "name": "Player B" },
+    { "id": 3, "controller": "Sam",   "team": "Neo United", "name": "Player C" },
+    { "id": 4, "controller": "Maya",  "team": "Dark Wings", "name": "Player D" },
+    { "id": 5, "controller": "Yann",  "team": "Solar FC", "name": "Player E" },
+    { "id": 6, "controller": "Rita",  "team": "Volt Club", "name": "Player F" },
+    { "id": 7, "controller": "Noa",   "team": "Titanes", "name": "Player G" },
+    { "id": 8, "controller": "Alex",  "team": "Phantom XI", "name": "Player H" }
+  ],
+  "rounds": [
+    [
+      { "id": "r0-m0", "p1": 1, "p2": 8, "score1": 0, "score2": 0, "winner": null },
+      { "id": "r0-m1", "p1": 4, "p2": 5, "score1": 0, "score2": 0, "winner": null },
+      { "id": "r0-m2", "p1": 2, "p2": 7, "score1": 0, "score2": 0, "winner": null },
+      { "id": "r0-m3", "p1": 3, "p2": 6, "score1": 0, "score2": 0, "winner": null }
+    ],
+    [
+      { "id": "r1-m0", "p1": null, "p2": null, "score1": 0, "score2": 0, "winner": null },
+      { "id": "r1-m1", "p1": null, "p2": null, "score1": 0, "score2": 0, "winner": null }
+    ],
+    [
+      { "id": "r2-m0", "p1": null, "p2": null, "score1": 0, "score2": 0, "winner": null }
+    ]
+  ]
+}

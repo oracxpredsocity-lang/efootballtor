@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="viewer">
+  <div id="bracket-container" class="bracket-container"></div>
+  <div class="trophy-center">
+    <div class="trophy">🏆</div>
+    <div class="trophy-label">ORACXPRED</div>
+  </div>
+</section>
+<script src="{{ url_for('static', filename='js/viewer.js') }}"></script>
+{% endblock %}

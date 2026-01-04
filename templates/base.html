@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ORACXPRED - eFootball Mobile 2026</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="data:;base64,">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo">🏆</span>
+      <h1>ORACXPRED</h1>
+      <small>eFootball Mobile 2026</small>
+    </div>
+    <nav>
+      <a href="{{ url_for('index') }}">Visualisateur</a>
+      <a href="{{ url_for('admin') }}">Admin</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <small>ORACXPRED - Tournoi 2026</small>
+  </footer>
+</body>
+</html>

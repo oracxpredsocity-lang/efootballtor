@@ -99,6 +99,7 @@ nav a{color:var(--muted);text-decoration:none;margin-left:12px}
 .json-editor{width:100%;height:350px;background:#061018;color:#ddd;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
 .error{color:#ff6b6b}
 .site-footer{padding:14px 20px;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+.sub-label{color:var(--muted);font-size:0.85rem;margin-top:-4px}
 @media (max-width:900px){
   .bracket-container{gap:12px;padding:8px}
   .bracket-column{min-width:160px}

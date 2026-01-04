@@ -1,13 +1,13 @@
 {
   "players": [
-    { "id": 1, "controller": "Théo", "team": "FC Oracx", "name": "Player A" },
-    { "id": 2, "controller": "Lina",  "team": "Golden Strikers", "name": "Player B" },
-    { "id": 3, "controller": "Sam",   "team": "Neo United", "name": "Player C" },
-    { "id": 4, "controller": "Maya",  "team": "Dark Wings", "name": "Player D" },
-    { "id": 5, "controller": "Yann",  "team": "Solar FC", "name": "Player E" },
-    { "id": 6, "controller": "Rita",  "team": "Volt Club", "name": "Player F" },
-    { "id": 7, "controller": "Noa",   "team": "Titanes", "name": "Player G" },
-    { "id": 8, "controller": "Alex",  "team": "Phantom XI", "name": "Player H" }
+    { "id": 1, "name": "Player A", "controller": "Théo", "team": "FC Oracx" },
+    { "id": 2, "name": "Player B", "controller": "Lina", "team": "Golden Strikers" },
+    { "id": 3, "name": "Player C", "controller": "Sam", "team": "Neo United" },
+    { "id": 4, "name": "Player D", "controller": "Maya", "team": "Dark Wings" },
+    { "id": 5, "name": "Player E", "controller": "Yann", "team": "Solar FC" },
+    { "id": 6, "name": "Player F", "controller": "Rita", "team": "Volt Club" },
+    { "id": 7, "name": "Player G", "controller": "Noa", "team": "Titanes" },
+    { "id": 8, "name": "Player H", "controller": "Alex", "team": "Phantom XI" }
   ],
   "rounds": [
     [

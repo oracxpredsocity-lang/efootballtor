@@ -11,6 +11,9 @@
       <input name="password" id="password" type="password" required />
       <button type="submit" class="btn">Se connecter</button>
     </form>
+    {% if config.get('ADMIN_TOKEN') %}
+      <p>Vous pouvez aussi vous connecter avec un <strong>token</strong> via <code>/admin?token=VOTRE_TOKEN</code></p>
+    {% endif %}
   {% else %}
     <h2>Admin Dashboard</h2>
     <div class="admin-actions">
@@ -26,6 +29,9 @@
       </div>
       <textarea id="json-editor" class="json-editor" style="display:none;"></textarea>
     </div>
+    <script>
+      // pass admin token availability to template (for hint only)
+    </script>
     <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
   {% endif %}
 </section>

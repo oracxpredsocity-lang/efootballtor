@@ -1,53 +1,53 @@
 # ORACXPRED - Tournoi eFootball Mobile 2026 (Flask)
 
-Ce projet est une petite application Flask pour afficher et administrer un bracket (8–16 joueurs) avec une coupe au centre, barres de progression et une page administrateur pour mettre à jour manuellement scores & résultats.
-
-Fonctionnalités principales
-- Page visualisateur (`/`) : lecture seule, bracket interactif, progression, responsive.
-- Page administrateur (`/admin`) : accès protégé par mot de passe, modification du fichier `players.json`.
-- Backend Flask qui lit/écrit `players.json`.
-- Frontend en HTML/CSS/JS (style noir + doré).
+Contenu du projet
+- app.py : application Flask (routes publiques et admin)
+- players.json : données du tournoi (joueurs + rounds)
+- templates/ : pages HTML (index, admin)
+- static/ : CSS / JS / assets
+- .env.example : variables d'environnement (admin password/token, secret)
+- requirements.txt : dépendances
+- .gitignore
 
 Installation rapide
-1. Créez un environnement virtuel et installez les dépendances :
+1. Créer un environnement virtuel et installer les dépendances
    - python -m venv .venv
-   - source .venv/bin/activate   (ou .venv\Scripts\activate sur Windows)
+   - source .venv/bin/activate  (Windows: .venv\\Scripts\\activate)
    - pip install -r requirements.txt
 
-2. (Optionnel) Personnaliser le mot de passe administrateur et la clé secrète :
-   - Create a `.env` file with:
-     FLASK_ADMIN_PASS=VotreMotDePasseAdmin
-     FLASK_SECRET_KEY=UneCleSecreteLongue
+2. Copier `.env.example` en `.env` et adapter :
+   - FLASK_ADMIN_PASS : mot de passe admin (optionnel si vous utilisez token)
+   - FLASK_ADMIN_TOKEN : (optionnel) token long non-guessable pour connexion via /admin?token=...
+   - FLASK_SECRET_KEY : clé secrète pour les sessions Flask
 
-   Par défaut, le mot de passe admin est `oracxpred2026` — changez-le en production.
-
-3. Lancer l'application :
+3. Lancer l'application
    - python app.py
-   - Ouvrir http://127.0.0.1:5000
+   - Ouvrir http://127.0.0.1:5000 pour visualiser le bracket
+   - Admin : http://127.0.0.1:5000/admin (ou /admin?token=VOTRE_TOKEN)
 
 Format du fichier players.json
-- players: liste d'objets { id, name }
+- players: liste d'objets { id (int), name (string), controller (string), team (string) }
 - rounds: liste de rounds; chaque round est une liste de matches
-- match: { id, p1, p2, score1, score2, winner }
-  - p1/p2 = player id ou null
-  - winner = player id or null (admin peut le définir)
+- match: { id (string), p1 (player id|null), p2 (player id|null), score1 (int), score2 (int), winner (player id|null) }
 
-Procédure d'administration
-- Aller sur /admin
-- Saisir le mot de passe
-- L'interface admin permet de voir les données actuelles, modifier noms, scores, et sauvegarder
-- Les visualisateurs verront les changements automatiquement (rafraîchissement en arrière-plan toutes les 2s)
+Administration
+- Se connecter via formulaire (mot de passe) ou via token dans l'URL.
+- Page admin permet d'éditer le JSON complet et sauvegarder.
+- Les visualisateurs rechargent automatiquement les données toutes les 2s (polling).
 
-Notes de sécurité & limites
-- Authentification simple par session & mot de passe stocké en clair (ou via .env). Pour production, utiliser OAuth/SSO, HTTPS, et une gestion des utilisateurs.
-- Les updates remplacent le JSON complet — l'admin UI envoie le JSON modifié. On peut l'étendre pour des endpoints plus granulaires.
-- Polling client toutes les 2s pour refléter les changements en temps réel — remplacer par WebSocket/SSE si nécessaire pour grande échelle.
+Sécurité & recommandations
+- Changez FLASK_ADMIN_PASS et/ou FLASK_ADMIN_TOKEN dans .env. N'utilisez pas les valeurs par défaut en production.
+- Activez HTTPS derrière un reverse-proxy (nginx) en production.
+- Pour une solution multi-admin ou plus sécurisée, utilisez Flask-Login + stockage des comptes (hash des mots de passe) ou OAuth/SSO.
 
-Exemples & customisation
-- Pour étendre à 16 joueurs, ajustez `players` et `rounds` (4 rounds : 16->8->4->2->1).
-- Le frontend calcule les barres de progression (ratio des scores dans le match) et affiche le gagnant si présent.
+Extensions possibles
+- Remplacer le polling par SSE / WebSocket pour push en temps réel.
+- UI admin par match (formulaire) au lieu d'éditer JSON brut.
+- Générateur automatique des rounds pour 8/16 joueurs.
+- Sauvegarde/backup du players.json avec historisation avant chaque changement.
 
-Si vous voulez, je peux :
-- ajouter WebSocket/SSE pour push en temps réel,
-- ajouter validation plus stricte côté serveur,
-- générer un command-line script pour construire automatiquement la structure pour N joueurs.
+Si vous voulez que je génère automatiquement :
+- Dockerfile + docker-compose,
+- endpoint plus granulaire / UI admin par match,
+- script pour construire rounds automatiquement pour N joueurs,
+dites-moi ce que vous préférez et je l'ajoute.
